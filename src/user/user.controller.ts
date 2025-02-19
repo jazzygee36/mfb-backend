@@ -1,22 +1,4 @@
-import {
-  Body,
-  Controller,
-  Delete,
-  Get,
-  Param,
-  ParseUUIDPipe,
-  Patch,
-  Post,
-  Query,
-  Req,
-  // UseGuards,
-  ValidationPipe,
-  UseGuards,
-  Put,
-  UsePipes,
-  NotFoundException,
-  BadRequestException,
-} from '@nestjs/common';
+import { Body, Controller, Get, Post, ValidationPipe } from '@nestjs/common';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UserService } from './user.service';
 import { VerifyEmailDto } from './dto/verify-email.dto';
@@ -48,5 +30,10 @@ export class UserController {
   @Post('/login')
   loginUser(@Body(ValidationPipe) loginUserDto: LoginUserDto) {
     return this.userService.login(loginUserDto);
+  }
+
+  @Get('/users')
+  findAll() {
+    return this.userService.findAll();
   }
 }

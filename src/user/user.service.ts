@@ -133,4 +133,8 @@ export class UserService {
       token,
     };
   }
+
+  async findAll(): Promise<any> {
+    return this.usersModel.find().populate('companyName').exec();
+  }
 }

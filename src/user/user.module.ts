@@ -14,7 +14,7 @@ import { Corporate, CorporateSchema } from './schema/corporate.schema';
 @Module({
   imports: [
     PassportModule,
-    // PassportModule.register({ defaultStrategy: 'jwt' }),
+
     MongooseModule.forFeature([
       { name: Users.name, schema: UsersSchema },
       { name: Corporate.name, schema: CorporateSchema },
